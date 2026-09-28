@@ -70,13 +70,3 @@ For `L` live cells and `G = 10` generations: each generation is `O(L)`
 time (8 tally increments per live cell, one pass over the tally) and
 `O(L)` space. Nothing scales with the coordinate range — three cells a
 trillion apart cost the same as three cells at the origin.
-
-## Assumptions / Tradeoffs
-
-Kept brief in code and here by design. The full discussion of alternatives
-considered — sparse vs. dense representation, string keys vs. nested maps,
-packed keys, arbitrary precision, asymptotic complexity, deterministic
-serialization, streaming, int64 boundary semantics, and Life 1.06 parser
-leniency — lives in [`docs/tradeoffs.pdf`](docs/tradeoffs.pdf), meant as a
-reference for follow-up discussion rather than something the implementation
-depends on.
