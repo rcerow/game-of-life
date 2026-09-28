@@ -4,7 +4,6 @@ export interface Coordinate {
   readonly y: bigint;
 }
 
-/** Canonical string representation used for Set/Map identity. */
 export type CellKey = string;
 
 export function keyOf(x: bigint, y: bigint): CellKey {
