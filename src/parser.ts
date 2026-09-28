@@ -5,11 +5,7 @@ const HEADER = "#Life 1.06";
 const INT64_MIN = -(1n << 63n);
 const INT64_MAX = (1n << 63n) - 1n;
 
-/**
- * Coordinates are parsed as bigints directly from their source substrings,
- * never routed through `Number`, so values outside JavaScript's
- * safe-integer range are read exactly rather than rounded.
- */
+/** Parse directly as bigint to avoid precision loss outside Number's safe integer range. */
 export function parseLife106(input: string): Set<CellKey> {
   const cells = new Set<CellKey>();
 

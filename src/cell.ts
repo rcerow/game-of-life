@@ -1,19 +1,10 @@
-/**
- * A live cell's coordinate on the (conceptually) unbounded, signed 64-bit
- * integer plane. bigint is used throughout so coordinates near the edges of
- * the int64 range (and the arithmetic on their neighbors) never overflow or
- * lose precision the way `number` would past 2^53.
- */
+/** Coordinates use bigint to preserve the full signed 64-bit range. */
 export interface Coordinate {
   readonly x: bigint;
   readonly y: bigint;
 }
 
-/**
- * Cells are keyed by a string so they can live in a Set/Map. Template
- * literals stringify bigints exactly (no precision loss), which is why this
- * is safe even at the extremes of the int64 range.
- */
+/** Canonical string representation used for Set/Map identity. */
 export type CellKey = string;
 
 export function keyOf(x: bigint, y: bigint): CellKey {

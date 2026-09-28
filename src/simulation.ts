@@ -1,11 +1,7 @@
 import { type CellKey, NEIGHBOR_OFFSETS, coordinateOf, keyOf } from "./cell.js";
 
 /**
- * A coordinate's neighbor-count tally, once every live cell has voted, is
- * exactly its number of live neighbors — including for dead coordinates,
- * since only live cells cast votes. That single tally is enough to decide
- * both Life rules in one pass: count === 3 means alive next generation
- * (survives or is born); count === 2 means alive only if it already was.
+ * Advances the board one generation by tallying neighbors of live cells.
  */
 export function step(liveCells: ReadonlySet<CellKey>): Set<CellKey> {
   const neighborCounts = new Map<CellKey, number>();
